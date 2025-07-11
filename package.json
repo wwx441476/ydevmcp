@@ -25,6 +25,9 @@
     "start": "node dist/index.js",
     "dev": "npx tsx src/index.ts"
   },
+  "test": {
+    "unit": "echo \"No unit tests yet\""
+  },
   "keywords": [
     "mcp",
     "ydev",
