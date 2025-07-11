@@ -11,18 +11,40 @@
   },
   "name": "ydevmcp",
   "version": "1.0.0",
-
+  "type": "module",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "ydevmcp": "dist/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && chmod +x dist/*.js",
+    "start": "node dist/index.js",
+    "dev": "npx tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "ydev",
+    "client",
+    "modelcontextprotocol",
+    "sdk"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "wangsxb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wwx441476/ydevmcp/issues"
+  },
   "description": "mcp client for ydev",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/wwx441476/ydevmcp.git"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
