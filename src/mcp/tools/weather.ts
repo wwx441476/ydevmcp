@@ -15,25 +15,13 @@ export function registerWeatherTool(mcpServer: McpServer): Set<string> {
     }
   },
   async ({ cityName, date}) => {
-    // Call the LLM through MCP sampling
-    const response = await mcpServer.server.createMessage({
-      messages: [
-        {
-          role: "user",
-          content: {
-            type: "text",
-            text: `Please summarize the following text concisely:\n\n${text}`,
-          },
-        },
-      ],
-      maxTokens: 500,
-    });
+    
 
     return {
       content: [
         {
           type: "text",
-          text: response.content.type === "text" ? response.content.text : "Unable to generate summary",
+          text: "The weather in " + cityName + " on " + date + " is sunny with a high of 25°C and a low of 15°C.",
         },
       ],
     };
