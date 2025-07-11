@@ -10,8 +10,8 @@ export function registerWeatherTool(mcpServer: McpServer): Set<string> {
   {
     description: "Summarize any text using an LLM",
     inputSchema: {
-      cityName: z.string().describe("The name of the text to summarize"),
-      date: z.string().describe("The date to get the weather for"),
+      cityName: z.string().describe("The name of the city to get the weather for"),
+      date: z.string().describe("The date to get the weather for, in the format YYYY-MM-DD , e.g. 2023-10-01, or 'today' for the current date"),
     }
   },
   async ({ cityName, date}) => {
