@@ -7,15 +7,16 @@
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "tsc": "^2.0.4",
+    "typescript": "^5.8.3",
     "uuid": "^11.1.0",
     "zod": "^3.23.8"
   },
-  "name": "ydevmcp",
-  "version": "1.0.0",
+  "name": "@wsx/ydevmcp",
+  "version": "2.0.0",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "ydevmcp": "dist/index.js"
+    "yesdev-mcp-server": "dist/index.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -34,10 +35,12 @@
     }
   },
   "scripts": {
-    "build": "tsc && chmod +x dist/*.js",
+    "build": "tsc && shx chmod +x dist/*.js",
+
     "start": "node dist/index.js",
     "dev": "npx tsx src/index.ts",
     "test": "jest",
+    "pub": "npm publish --registry=https://repo.yyrd.com/artifactory/api/npm/ynpm-private/",
     "build:esm": "mkdir -p dist/esm && echo '{\"type\": \"module\"}' > dist/esm/package.json && tsc --project tsconfig.prod.json",
     "build:cjs": "mkdir -p dist/cjs && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json && tsc --project tsconfig.cjs.json"
   },
@@ -52,8 +55,7 @@
     "sdk"
   ],
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "author": "wangsxb",
   "license": "MIT",
@@ -72,7 +74,6 @@
     "jest": "^30.0.4",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.20.3",
-    "typescript": "^5.4.5"
+    "tsx": "^4.20.3"
   }
 }
