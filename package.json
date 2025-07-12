@@ -35,14 +35,13 @@
     }
   },
   "scripts": {
-    "build": "tsc && shx chmod +x dist/*.js",
-
+    "clean": "shx rm -rf dist && shx rm -rf node_modules",
+    "cleanTs": "shx rm -rf dist/**/*.ts && shx rm -rf dist/**/*.map && shx rm -rf dist/**/*.map.js",
+    "bu": "tsc && shx chmod +x dist/*.js",
     "start": "node dist/index.js",
     "dev": "npx tsx src/index.ts",
     "test": "jest",
-    "pub": "npm publish --registry=https://repo.yyrd.com/artifactory/api/npm/ynpm-private/",
-    "build:esm": "mkdir -p dist/esm && echo '{\"type\": \"module\"}' > dist/esm/package.json && tsc --project tsconfig.prod.json",
-    "build:cjs": "mkdir -p dist/cjs && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json && tsc --project tsconfig.cjs.json"
+    "pub": "npm publish --registry=https://repo.yyrd.com/artifactory/api/npm/ynpm-private/"
   },
   "test": {
     "unit": "echo \"No unit tests yet\""
@@ -72,6 +71,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.13",
     "jest": "^30.0.4",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.3"
